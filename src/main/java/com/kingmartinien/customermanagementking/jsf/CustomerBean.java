@@ -32,7 +32,10 @@ public class CustomerBean implements Serializable {
     }
 
     public List<Customer> getCustomerList() {
+        if (customerList == null) {
+            customerList = customerManager.getAllCustomers();
+        }
         System.out.println("Getting The list of customers....");
-        return customerManager.getAllCustomers();
+        return customerList;
     }
 }
